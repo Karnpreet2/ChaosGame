@@ -70,8 +70,7 @@ int main()
             ///select random vertex
             ///calculate midpoint between random vertex and the last point in the vector
             ///push back the newly generated coord.
-	    int buff=0;
-	    for (int i=0; i<1000; i++){
+	    for (int i=0; i<50; i++){
 		int index=rand() % vertices.size();
 		Vector2f randVertex = vertices[index];
 
@@ -91,19 +90,30 @@ int main()
 		****************************************
 		*/
         window.clear();
-        for(int i = 0; i < vertices.size(); i++)
+        for(unsigned long long int i = 0; i < vertices.size(); i++)
         {
             RectangleShape rect(Vector2f(10,10));
             rect.setPosition(Vector2f(vertices[i].x, vertices[i].y));
             rect.setFillColor(Color::Blue);
             window.draw(rect);
         }
-	for (int i=0; i< points.size();i++){
+	for (unsigned long long int i=0; i< points.size();i++){
 	    RectangleShape rect(Vector2f(5,5));
 	    rect.setPosition(Vector2f(points[i].x, points[i].y));
 	    rect.setFillColor(Color::Blue);
 	    window.draw(rect);
 	}
+    Font font;
+    if (!font.loadFromFile("KOMIKAP_.ttf"))
+    {
+      cerr << "Something wrong with font." << endl;
+    }
+    Text text;
+    text.setFont(font);
+    text.setCharacterSize(25);
+    text.setFillColor(Color::White);
+    text.setPosition(10.f, 10.f);
+    text.setString("Click on 3 spots to set up triangle vertices. \nThen click for the 4th point to start generating the fractal. ");
         window.display();
     }
 }
