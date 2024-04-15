@@ -103,17 +103,19 @@ int main()
 	    rect.setFillColor(Color::Blue);
 	    window.draw(rect);
 	}
-    Font font;
-    if (!font.loadFromFile("KOMIKAP_.ttf"))
-    {
-      cerr << "Something wrong with font." << endl;
-    }
-    Text text;
-    text.setFont(font);
-    text.setCharacterSize(25);
-    text.setFillColor(Color::White);
-    text.setPosition(10.f, 10.f);
-    text.setString("Click on 3 spots to set up triangle vertices. \nThen click for the 4th point to start generating the fractal. ");
-        window.display();
+	Font font;
+    	if (!font.loadFromFile("KOMIKAP_.ttf"))
+    	{
+      		cerr << "Something wrong with font." << endl;
+    	}
+    	Text text;
+    	text.setFont(font);
+    	text.setCharacterSize(25);
+    	text.setFillColor(Color::White);
+    	text.setPosition(10.f, 10.f);
+    	text.setString("Click on 3 spots to set up triangle vertices. \nThen click for the 4th point to start generating the fractal. ");
+        
+	window.draw(text);
+	window.display();
     }
 }
