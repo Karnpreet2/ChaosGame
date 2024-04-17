@@ -19,6 +19,22 @@ int main()
 
     vector<Vector2f> vertices;
     vector<Vector2f> points;
+
+	Font font;
+	if (!font.loadFromFile("KOMIKAP_.ttf"))
+	{
+		cerr << "Something wrong with font." << endl;
+	}
+	
+	Text displayCoords; //new object to show the coordinates to user
+	displayCoords.setFont(font);
+	displayCoords.setCharacterSize(15);
+	displayCoords.setFillColor(Color::White);
+	displayCoords.setPosition(1500.f, 600.f); // need to change coords
+	string completestring = "";
+	string displayvertices;
+
+
 	while (window.isOpen())
 	{
         /*
@@ -29,7 +45,9 @@ int main()
         Event event;
 		while (window.pollEvent(event))
 		{
-            if (event.type == Event::Closed)
+
+		
+			if (event.type == Event::Closed)
             {
 				// Quit the game when the window is closed
 				window.close();
@@ -65,6 +83,17 @@ int main()
 						//displayvertices = "Vertice " + to_string(sizeofvectorvertices) + "\nmouse x: " + to_string(event.mouseButton.x) + "\nmouse y: " +to_string(event.mouseButton.y) +"\n";
 						//completestring = completestring + displayvertices;
 						//displayCoords.setString(completestring);
+						    	
+
+							//displayvertices = "Vertex " + to_string(i+1) + "\nmouse x: " + to_string(vertices[i].x) + "\nmouse y: " + to_string(vertices[i].y) +"\n";
+							displayvertices = "Vertex " + to_string(vertices.size()) + "\nmouse x: " + to_string(event.mouseButton.x) + "\nmouse y: " + to_string(event.mouseButton.y) +"\n";
+							completestring = completestring + displayvertices;
+
+							displayCoords.setString(completestring);
+							
+						//window.draw(text);
+						//window.draw(displayCoords);
+						//window.display();
 
                     }
                     else if(points.size() == 0)
@@ -92,18 +121,19 @@ int main()
             ///select random vertex
             ///calculate midpoint between random vertex and the last point in the vector
             ///push back the newly generated coord.
-	    for (int i=0; i<50; i++){
-		int index=rand() % vertices.size();
-		Vector2f randVertex = vertices[index];
+	    	for (int i=0; i<50; i++)
+			{
+				int index=rand() % vertices.size();
+				Vector2f randVertex = vertices[index];
 
-		Vector2f midpoint = (randVertex + points.back())/2.0f;
-		points.push_back(midpoint);
+				Vector2f midpoint = (randVertex + points.back())/2.0f;
+				points.push_back(midpoint);
 
-		RectangleShape rect(Vector2f(5,5));
-		rect.setPosition(midpoint);
-		rect.setFillColor(Color::Red);
-		window.draw(rect);
-	    }
+				RectangleShape rect(Vector2f(5,5));
+				rect.setPosition(midpoint);
+				rect.setFillColor(Color::Red);
+				window.draw(rect);
+			}
         }
 
         /*
@@ -125,11 +155,7 @@ int main()
 	    rect.setFillColor(Color::Blue);
 	    window.draw(rect);
 	}
-	Font font;
-    	if (!font.loadFromFile("KOMIKAP_.ttf"))
-    	{
-      		cerr << "Something wrong with font." << endl;
-    	}
+
     	Text text;
     	text.setFont(font);
     	text.setCharacterSize(25);
@@ -137,19 +163,29 @@ int main()
     	text.setPosition(10.f, 10.f);
     	text.setString("Click on 3 spots to set up triangle vertices. \nThen click for the 4th point to start generating the fractal. ");
 
-		Text displayCoords; //new object to show the coordinates to user
+		/*Text displayCoords; //new object to show the coordinates to user
 		displayCoords.setFont(font);
 		displayCoords.setCharacterSize(15);
 		displayCoords.setFillColor(Color::White);
 		displayCoords.setPosition(1500.f, 600.f); // need to change coords
 		string completestring = "";
 		string displayvertices;
+		//float test= 10.2;
+		//int xcoord, ycoord;
+		//xcoord=(int)vertices.at(0)::x;
 		for (int i = 0; i < 3; i++)
 		{
-		displayvertices = "Vertice " + to_string(i+1) + "\nmouse x: " + to_string(event.mouseButton.x) + "\nmouse y: " +to_string(event.mouseButton.y) +"\n";
-		completestring = completestring + displayvertices;
+			//xcoord=(int)test;
+			//xcoord=(int)vertices.at(i)::x;
+			//ycoord=(int)vertices.at(i)::y;
+			//xcoord=(int)vertices.at(i)::x;
+			//ycoord=(int)vertices.at(i)::y;
+
+			//displayvertices = "Vertex " + to_string(i+1) + "\nmouse x: " + to_string(vertices[i].x) + "\nmouse y: " + to_string(vertices[i].y) +"\n";
+			displayvertices = "Vertex " + to_string(i+1) + "\nmouse x: " + to_string(2) + "\nmouse y: " + to_string(4) +"\n";
+			completestring = completestring + displayvertices;
 		}
-		displayCoords.setString(completestring);
+		displayCoords.setString(completestring);*/
 		
 	window.draw(text);
 	window.draw(displayCoords);
