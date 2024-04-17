@@ -55,21 +55,7 @@ int main()
             if (event.type == sf::Event::MouseButtonPressed)
             {
 				Font font;
-    		/*if (!font.loadFromFile("KOMIKAP_.ttf"))
-    		{
-      			cerr << "Something wrong with font." << endl;
-    		}
-				Text displayCoords; //new object to show the coordinates to user
-				displayCoords.setFont(font);
-				displayCoords.setCharacterSize(15);
-				displayCoords.setFillColor(Color::White);
-				displayCoords.setPosition(10.f, 10.f); // need to change coords
-				string completestring = "";
-				string displayvertices;
-				int sizeofvectorvertices; */
-
-
-                if (event.mouseButton.button == sf::Mouse::Left)
+            	if (event.mouseButton.button == sf::Mouse::Left)
                 {
                     std::cout << "the left button was pressed" << std::endl;
                     std::cout << "mouse x: " << event.mouseButton.x << std::endl;
@@ -78,23 +64,9 @@ int main()
                     if(vertices.size() < 3)
                     {
                         vertices.push_back(Vector2f(event.mouseButton.x, event.mouseButton.y));
-
-						//sizeofvectorvertices = vertices.size();
-						//displayvertices = "Vertice " + to_string(sizeofvectorvertices) + "\nmouse x: " + to_string(event.mouseButton.x) + "\nmouse y: " +to_string(event.mouseButton.y) +"\n";
-						//completestring = completestring + displayvertices;
-						//displayCoords.setString(completestring);
-						    	
-
-							//displayvertices = "Vertex " + to_string(i+1) + "\nmouse x: " + to_string(vertices[i].x) + "\nmouse y: " + to_string(vertices[i].y) +"\n";
-							displayvertices = "Vertex " + to_string(vertices.size()) + "\nmouse x: " + to_string(event.mouseButton.x) + "\nmouse y: " + to_string(event.mouseButton.y) +"\n";
-							completestring = completestring + displayvertices;
-
-							displayCoords.setString(completestring);
-							
-						//window.draw(text);
-						//window.draw(displayCoords);
-						//window.display();
-
+						displayvertices = "Vertex " + to_string(vertices.size()) + "\nmouse x: " + to_string(event.mouseButton.x) + "\nmouse y: " + to_string(event.mouseButton.y) +"\n";
+						completestring = completestring + displayvertices;
+						displayCoords.setString(completestring);
                     }
                     else if(points.size() == 0)
                     {
@@ -162,36 +134,10 @@ int main()
     	text.setFillColor(Color::White);
     	text.setPosition(10.f, 10.f);
     	text.setString("Click on 3 spots to set up triangle vertices. \nThen click for the 4th point to start generating the fractal. ");
-
-		/*Text displayCoords; //new object to show the coordinates to user
-		displayCoords.setFont(font);
-		displayCoords.setCharacterSize(15);
-		displayCoords.setFillColor(Color::White);
-		displayCoords.setPosition(1500.f, 600.f); // need to change coords
-		string completestring = "";
-		string displayvertices;
-		//float test= 10.2;
-		//int xcoord, ycoord;
-		//xcoord=(int)vertices.at(0)::x;
-		for (int i = 0; i < 3; i++)
-		{
-			//xcoord=(int)test;
-			//xcoord=(int)vertices.at(i)::x;
-			//ycoord=(int)vertices.at(i)::y;
-			//xcoord=(int)vertices.at(i)::x;
-			//ycoord=(int)vertices.at(i)::y;
-
-			//displayvertices = "Vertex " + to_string(i+1) + "\nmouse x: " + to_string(vertices[i].x) + "\nmouse y: " + to_string(vertices[i].y) +"\n";
-			displayvertices = "Vertex " + to_string(i+1) + "\nmouse x: " + to_string(2) + "\nmouse y: " + to_string(4) +"\n";
-			completestring = completestring + displayvertices;
-		}
-		displayCoords.setString(completestring);*/
 		
 	window.draw(text);
 	window.draw(displayCoords);
 	window.display();
-	//window.draw(displayCoords);
-
     }
 }
 //Karnpreet Klair and Musa Rana
