@@ -36,11 +36,16 @@ int main()
             }
             if (event.type == sf::Event::MouseButtonPressed)
             {
+				Font font;
+    		if (!font.loadFromFile("KOMIKAP_.ttf"))
+    		{
+      			cerr << "Something wrong with font." << endl;
+    		}
 				Text displayCoords; //new object to show the coordinates to user
 				displayCoords.setFont(font);
 				displayCoords.setCharacterSize(15);
-				displayCoords.setFillColor(Color::Purple);
-				displayCoords.setPositon(10.f, 10.f); // need to change coords
+				displayCoords.setFillColor(Color::White);
+				displayCoords.setPosition(10.f, 10.f); // need to change coords
 				string completestring = "";
 				string displayvertices;
 				int sizeofvectorvertices;
